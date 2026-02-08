@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Admission Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="logo">
+            <img src="image.png" alt="MKSSS Cummins College Logo" class="college-logo">
+            <h1>MKSSS's Cummins College of Engineering for Women, Pune</h1>
+        </div>
+        <p class="tagline">Online Admission portal 2025-26</p>
+    </header>
+
+    <div class="container">
+        <div class="form-header">
+            <h2>Student Admission form</h2>
+            <p> Please fill all the details correctly..</p>    
+        </div>
+        
+        <form name="admissionForm" id="admissionForm" onsubmit="return validateForm()" method="POST">
+            <div class="section">
+                <h3 class="section-title">
+                    <span class="section-icon">👤</span>
+                    Personal Information
+                </h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="requierd">*</span></label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter ur 1st name">
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName" placeholder="Enter ur middle name">
+                    </div> 
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="requierd">*</span></label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter ur last name">
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="dob" name="dob">
+                        <span class="error-message" id="dobError"></span>
+                        <small class="help-text">Must be between 01/01/1990 and 31/12/2005</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="male" name="gender" value="Male">
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="female" name="gender" value="Female">
+                                <label for="female">Female</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="other" name="gender" value="Other">
+                                <label for="other">Other</label>
+                            </div>
+                        </div>
+                        <span class="error-message" id="genderError"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nationality">Nationality <span class="required">*</span></label>
+                        <select id="nationality" name="nationality">
+                            <option value="">-- Select Nationality --</option>
+                            <option value="Indian">Indian</option>
+                            <option value="American">American</option>
+                            <option value="British">British</option>
+                            <option value="Canadian">Canadian</option>
+                            <option value="Australian">Australian</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="error-message" id="nationalityError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bloodGroup">Blood Group</label>
+                        <select id="bloodGroup" name="bloodGroup">
+                            <option value="">-- Select Blood Group --</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">
+                    <span class="section-icon">📞</span>
+                    Contact Information
+                </h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" maxlength="10">
+                        <span class="error-message" id="phoneError"></span>
+                        <small class="help-text">Must be exactly 10 digits</small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="address">Permanent Address <span class="required">*</span></label>
+                        <textarea id="address" name="address" rows="3" placeholder="Enter your complete address"></textarea>
+                        <span class="error-message" id="addressError"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City <span class="required">*</span></label>
+                        <input type="text" id="city" name="city" placeholder="Enter your city">
+                        <span class="error-message" id="cityError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state">State <span class="required">*</span></label>
+                        <input type="text" id="state" name="state" placeholder="Enter your state">
+                        <span class="error-message" id="stateError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pincode">Pin Code <span class="required">*</span></label>
+                        <input type="text" id="pincode" name="pincode" placeholder="6-digit pincode" maxlength="6">
+                        <span class="error-message" id="pincodeError"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">
+                    <span class="section-icon">📚</span>
+                    Academic Information
+                </h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="course">Course Applying For <span class="required">*</span></label>
+                        <select id="course" name="course">
+                            <option value="">-- Select Course --</option>
+                            <option value="B.Tech - Computer Engineering">B.Tech - Computer Engineering</option>
+                            <option value="B.Tech - Mechanical Engineering">B.Tech - Mechanical Engineering</option>
+                            <option value="B.Tech - Civil Engineering">B.Tech - Civil Engineering</option>
+                            <option value="B.Tech - Electrical Engineering">B.Tech - Electrical Engineering</option>
+                            <option value="BBA">BBA - Business Administration</option>
+                            <option value="BCA">BCA - Computer Applications</option>
+                        </select>
+                        <span class="error-message" id="courseError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admissionYear">Admission Year <span class="required">*</span></label>
+                        <select id="admissionYear" name="admissionYear">
+                            <option value="">-- Select Year --</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                        </select>
+                        <span class="error-message" id="admissionYearError"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="previousSchool">Previous School/College Name <span class="required">*</span></label>
+                        <input type="text" id="previousSchool" name="previousSchool" placeholder="Enter institution name">
+                        <span class="error-message" id="previousSchoolError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="percentage">Percentage/CGPA <span class="required">*</span></label>
+                        <input type="number" id="percentage" name="percentage" placeholder="Enter marks (0-100)" min="0" max="100" step="0.01">
+                        <span class="error-message" id="percentageError"></span>
+                        <small class="help-text">Must be between 0 and 100</small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="passingYear">Year of Passing <span class="required">*</span></label>
+                        <input type="number" id="passingYear" name="passingYear" placeholder="e.g., 2024" min="2000" max="2026">
+                        <span class="error-message" id="passingYearError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="board">Board/University <span class="required">*</span></label>
+                        <input type="text" id="board" name="board" placeholder="e.g., CBSE, State Board">
+                        <span class="error-message" id="boardError"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent/Guardian Information Section -->
+            <div class="section">
+                <h3 class="section-title">
+                    <span class="section-icon">👨‍👩‍👦</span>
+                    Parent/Guardian Information
+                </h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fatherName">Father's Name <span class="required">*</span></label>
+                        <input type="text" id="fatherName" name="fatherName" placeholder="Enter father's full name">
+                        <span class="error-message" id="fatherNameError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fatherOccupation">Father's Occupation</label>
+                        <input type="text" id="fatherOccupation" name="fatherOccupation" placeholder="Enter occupation">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fatherPhone">Father's Phone <span class="required">*</span></label>
+                        <input type="tel" id="fatherPhone" name="fatherPhone" placeholder="10-digit number" maxlength="10">
+                        <span class="error-message" id="fatherPhoneError"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="motherName">Mother's Name <span class="required">*</span></label>
+                        <input type="text" id="motherName" name="motherName" placeholder="Enter mother's full name">
+                        <span class="error-message" id="motherNameError"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motherOccupation">Mother's Occupation</label>
+                        <input type="text" id="motherOccupation" name="motherOccupation" placeholder="Enter occupation">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motherPhone">Mother's Phone</label>
+                        <input type="tel" id="motherPhone" name="motherPhone" placeholder="10-digit number" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guardianEmail">Guardian Email</label>
+                        <input type="email" id="guardianEmail" name="guardianEmail" placeholder="guardian@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="annualIncome">Annual Family Income <span class="required">*</span></label>
+                        <select id="annualIncome" name="annualIncome">
+                            <option value="">-- Select Range --</option>
+                            <option value="Below 1 Lakh">Below 1 Lakh</option>
+                            <option value="1-3 Lakhs">1-3 Lakhs</option>
+                            <option value="3-5 Lakhs">3-5 Lakhs</option>
+                            <option value="5-10 Lakhs">5-10 Lakhs</option>
+                            <option value="Above 10 Lakhs">Above 10 Lakhs</option>
+                        </select>
+                        <span class="error-message" id="annualIncomeError"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">
+                    <span class="section-icon">ℹ️</span>
+                    Additional Information
+                </h3>
+                
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label>Extra-Curricular Activities (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sports" name="activities" value="Sports">
+                                <label for="sports">Sports</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="music" name="activities" value="Music">
+                                <label for="music">Music</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="arts" name="activities" value="Arts">
+                                <label for="arts">Arts</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="drama" name="activities" value="Drama">
+                                <label for="drama">Drama</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="debate" name="activities" value="Debate">
+                                <label for="debate">Debate</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="achievements">Academic Achievements / Awards</label>
+                        <textarea id="achievements" name="achievements" rows="3" placeholder="List any awards, achievements, or certifications"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="whyJoin">Why do you want to join our university? <span class="required">*</span></label>
+                        <textarea id="whyJoin" name="whyJoin" rows="4" placeholder="Tell us your motivation (minimum 50 characters)"></textarea>
+                        <span class="error-message" id="whyJoinError"></span>
+                        <small class="help-text">Minimum 50 characters required</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">
+                    <span class="section-icon">📎</span>
+                    Document Upload
+                </h3>
+                
+                <div class="upload-info">
+                    <p>📄 Please upload all required documents for verification</p>
+                    <a href="document_upload.html" target="_blank" class="upload-btn">
+                        📤 Go to Document Upload Page
+                    </a>
+                    <p class="note">Note: You can upload documents after submitting this form</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="terms-section">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="terms" name="terms">
+                        <label for="terms">
+                            I hereby declare that all the information provided above is true and correct to the best of my knowledge. <span class="required">*</span>
+                        </label>
+                    </div>
+                    <span class="error-message" id="termsError"></span>
+                </div>
+            </div>
+
+            <!-- Form Buttons -->
+            <div class="button-group">
+                <button type="reset" class="btn btn-secondary" onclick="return confirmReset()">
+                    🔄 Reset Form
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    ✅ Submit Application
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <foooter class="footer">
+        <p>&copy; 2025-26 CCOEW, Pune. All Rights Reserved.</p>
+        <p>For assistance, contact: admin@cumminscollege.in | +91-1234567890</p>
+    </footer>
+
+    <script src="validation.js"></script>
+</body>
+</html>
